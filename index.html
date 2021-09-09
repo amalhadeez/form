@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head> 
+  <meta charset="utf-8">
+<title>Registration Form
+</title>
+<style>
+.field{
+
+	background-color:#D5EEBB;
+}
+.center {
+margin: auto;
+margin-top: 50px;
+width: 20%;
+padding: 10px;
+}
+.centre {
+margin: auto;
+width: 20%;
+padding: 10px;
+}
+legend{
+font-size:20px;
+color:white;
+background-color:#5F7A61;
+ border: 2px solid #5F7A61;
+  border-radius: 5px;
+}
+input[type=submit] {
+  background-color: #3DB2FF;
+  color: white;
+  border: 1px solid black;
+  border-radius: 4px;
+  cursor: pointer;
+}
+input[type=reset]{
+  background-color: red;
+  color: white;
+  border: 1px solid black;
+  border-radius: 4px;
+  cursor: pointer;
+}
+</style>
+<script  type="text/javascript">
+function ValidateContactForm()
+{
+  var textField = document.ContactForm.textField;
+  if(textField.value === "")
+  {
+      window.alert("❌❌Enter Valid Name❌❌");
+      textField.select();
+      return false;
+  }
+  if(!isNaN(textField.value))
+  {
+     window.alert("❌❌Enter Valid Name❌❌");
+    textField.select();
+    return false;
+  }
+   var passwordField = document.ContactForm.passwordField;
+   if(passwordField.value =="")
+   {
+        window.alert("❌❌ Enter valid Password field ❌❌");
+        passwordField.select();
+        return false;
+   }
+   if(passwordField.value.length < 7)
+   {
+      window.alert("❌❌ Your Password character contains atleast 8 characters ❌❌");
+      passwordField.select();
+      return false;
+   }
+    const specialCharacters = /^(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{7,15}/;
+   if(!passwordField.value.match(specialCharacters))
+  {
+    window.alert("❌❌ PasswordField contain atleast one special character ❌❌");
+    passwordField.select();
+    return false;
+  }
+
+ var age = document.ContactForm.age;
+ if(age.value == "")
+ {
+    window.alert("❌❌ Enter Valid age ❌❌");
+    age.select();
+    return false;
+ }
+ if(isNaN(age.value))
+ {
+     window.alert("❌❌ Your age must contain only numerical ❌❌");
+    age.select();
+    return false;
+ }
+ var email = document.ContactForm.email;
+if (email.value == "")
+{
+    window.alert("❌❌ enter valid e-mail address ❌❌");
+    email.select();
+    return false;
+}
+if (email.value.indexOf("@", 0) < 0)
+{
+    window.alert("❌❌ enter valid e-mail address ❌❌");
+    email.select();
+    return false;
+}
+if (email.value.indexOf(".", 0) < 0)
+{
+    window.alert("❌❌ enter valid e-mail address ❌❌");
+    email.select();
+    return false;
+}
+var rad = document.ContactForm.radioButtonField;
+if(!(document.getElementById('radioButtonField1').checked || document.getElementById('radioButtonField2').checked))
+{
+  window.alert("❌❌ enter valid Gender ❌❌");
+  radioButtonField.select();
+  return false;
+}
+var captcha = document.ContactForm.captcha;
+if( captcha.value != "qGphJD")
+{
+  window.alert("❌❌ enter valid Captcha ❌❌");
+  captcha.select();
+  return false;
+}
+}
+</script>
+</head>
+  <body bgcolor = "#7FC8A9"> 
+  <center>
+  <div class ="center">
+  <fieldset class="field">
+  <legend align = "centre">Registration Form</legend>
+    <form class="form" name="ContactForm" method="post" onsubmit="return ValidateContactForm();">
+	    <br>
+		Name :  
+        <input type="text" name="textField" "  /> <br>
+        <br>
+		
+		 Password : 
+        <input type="password" name="passwordField" id="passwordField" value="" /> <br>
+        <br>
+		Age : 
+		<input type="text" name = "age" ><br>
+		<br>
+		Email : 
+        <input type="text" name="email" value="" /> <br>
+        <br>
+		DOB : 
+		<input type ="date" id="dob" name="dob">
+		<br>
+		<br>
+		Gender :
+        <input type="radio" name="radioButtonField" id="radioButtonField1" value="radio1" />
+         Male <input type="radio" name="radioButtonField" id="radioButtonField2" value="radio2" /> Female<br>
+       <br>
+	    Enter Captcha :<br>
+        <input type="image" name="imageField" id="imageField" value="captcha" src="captcha.jpg" width="300" height="100" /> &ensp;
+		<br>
+		<input type="text" name="captcha"/> <br>
+        <br> 
+		<input type="submit" name="submitButton" id="submitButton" value="Submit Form" />&ensp;
+        <input type="reset" name="resetButton" id="resetButton"  value="Reset Form" /> <br>
+	</fieldset>
+	</form>
+	</div>
+	</center>
+  </body> 
+</html> 
